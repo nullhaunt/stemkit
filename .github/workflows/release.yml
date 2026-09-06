@@ -82,7 +82,7 @@ jobs:
               echo "::error::No valid Developer ID Application identity in CSC_MAC_P12"
               exit 1
             fi
-            echo "CSC_NAME=$ID_NAME" >> "$GITHUB_ENV"
+            echo "CSC_NAME=${ID_NAME#Developer ID Application: }" >> "$GITHUB_ENV"
             echo "Developer ID signing enabled: $ID_NAME"
           else
             echo "CSC_MAC_P12 secret not set — falling back to ad-hoc signing"
