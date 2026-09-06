@@ -124,6 +124,7 @@ export interface StemKitApi {
   setSettings(patch: Partial<AppSettings>): Promise<AppSettings>
   trackEvent(name: string, params?: Record<string, string | number | boolean>): void
   getThumb(videoId: string): Promise<string | null>
+  onThumbCached(cb: (videoId: string) => void): () => void
   enginesStatus(): Promise<EngineStatus>
   fetchEngine(which: 'vocals' | 'ft' | 'gpu'): Promise<void>
   onUpdateEvent(cb: (ev: UpdateEvent) => void): () => void
